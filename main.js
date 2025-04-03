@@ -16,7 +16,10 @@ buttons.forEach(button => {
         }
         else if (button.className == "operator"){
             operatorStatus += 1
-            display.textContent += button.textContent 
+            if(button.textContent != "="){
+                display.textContent += button.textContent
+            }
+             
             if(button.textContent == "+"){
                 operator = add
             }
@@ -31,7 +34,8 @@ buttons.forEach(button => {
             }
             else if(button.textContent == "="){
                 if(a == "" && b =="") {
-                    
+                    operatorStatus = 0
+                    return
                 }else{
                     let aNum = Number(a)
                     let bNum = Number(b)
