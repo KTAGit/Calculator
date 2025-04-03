@@ -98,7 +98,7 @@ function multiply(numOne, numTwo){
 }
 
 function divide(numOne, numTwo){
-    return numOne / numTwo
+    return Math.floor((numOne / numTwo) * 100) / 100
 }
 
 function operate(a, b, operator){    
