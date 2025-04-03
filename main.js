@@ -21,15 +21,27 @@ buttons.forEach(button => {
             }
              
             if(button.textContent == "+"){
+                if (operator != null){
+                    calculateBeforeOperator()
+                }
                 operator = add
             }
             if(button.textContent == "-"){
+                if (operator != null){
+                    calculateBeforeOperator()
+                }
                 operator = subtract
             }
             if(button.textContent == "*"){
+                if (operator != null){
+                    calculateBeforeOperator()
+                }
                 operator = multiply
             }
             if(button.textContent == "/"){
+                if (operator != null){
+                    calculateBeforeOperator()
+                }
                 operator = divide
             }
             else if(button.textContent == "="){
@@ -37,26 +49,12 @@ buttons.forEach(button => {
                     operatorStatus = 0
                     return
                 }else{
-                    let aNum = Number(a)
-                    let bNum = Number(b)
-                    console.log(operator)
-                    display.textContent = operate(aNum, bNum, operator)
-                    let result = operate(aNum, bNum, operator)
-                    a = result.toString()
-                    b = ""
+                    calculateBeforeOperator()
                 }
                 
             }
             else if (operatorStatus > 1){
-                let aNum = Number(a)
-                let bNum = Number(b)
-                console.log(operator)
-                display.textContent = operate(aNum, bNum, operator)
-                let result = operate(aNum, bNum, operator)
-                a = result.toString()
-                display.textContent += button.textContent 
-                b = ""
-                
+                calculateBeforeOperator()
             }
             
 
@@ -85,6 +83,15 @@ buttons.forEach(button => {
     
 });
 
+function calculateBeforeOperator(){
+    let aNum = Number(a)
+    let bNum = Number(b)
+    console.log(operator)
+    display.textContent = operate(aNum, bNum, operator)
+    let result = operate(aNum, bNum, operator)
+    a = result.toString()
+    b = ""
+}
 
 
 
