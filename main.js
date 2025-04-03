@@ -45,7 +45,7 @@ buttons.forEach(button => {
                 operator = divide
             }
             else if(button.textContent == "="){
-                if(a == "" && b =="") {
+                if(a == "" && b =="" || b == "") {
                     operatorStatus = 0
                     return
                 }else{
@@ -109,6 +109,9 @@ function multiply(numOne, numTwo){
 }
 
 function divide(numOne, numTwo){
+    if ( Math.floor((numOne / numTwo) * 100) / 100 == "Infinity"){
+        return "😏"
+    }
     return Math.floor((numOne / numTwo) * 100) / 100
 }
 
