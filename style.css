@@ -68,9 +68,6 @@ button.zero{
     width: 248px;
     border-bottom-left-radius: 30px;
 }
-.operator.equal{
-    border-bottom-right-radius: 30px;
-}
 button.operator{
     color: hsl(123, 74%, 60%);
 }
