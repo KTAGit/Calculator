@@ -5,14 +5,11 @@ let a = ""
 let b = ""
 let operator = null
 let operatorStatus = 0
+let equalPressed = "no"
 buttons.forEach(button => {
     button.addEventListener("click", function() {
         if(button.textContent == "AC"){
-            display.textContent = ""
-            a = ""
-            b = ""
-            operatorStatus = 0
-            operator = null
+            clear()
         }
         else if (button.className == "operator"){
             operatorStatus += 1
@@ -32,7 +29,7 @@ buttons.forEach(button => {
                 }
                 operator = subtract
             }
-            if(button.textContent == "*"){
+            if(button.textContent == "x"){
                 if (operator != null){
                     calculateBeforeOperator()
                 }
@@ -45,35 +42,47 @@ buttons.forEach(button => {
                 operator = divide
             }
             else if(button.textContent == "="){
-                if(a == "" && b =="" || b == "") {
+                if(a == "" && b =="") {
                     operatorStatus = 0
                     return
-                }else{
+                }
+                else if(b == ""){
+                    return
+                }      
+                else{
                     calculateBeforeOperator()
+                    equalPressed = "yes"
+                    b = ""
+                    operatorStatus = 0
+                    operator = null
                 }
                 
             }
-            else if (operatorStatus > 1){
-                calculateBeforeOperator()
-            }
-            
-
         }
         else if (operatorStatus == 1){
             display.textContent += button.textContent 
             b += button.textContent
         }
         else if (operatorStatus > 1){
+            if (b != ""){
+
+            }
+            else {
+                display.textContent = ""
+            }
             
-            display.textContent += button.textContent 
+            display.textContent += button.textContent
             b += button.textContent
         }
         
         else if (operatorStatus < 1){
             if (button.textContent == "="){
-
+                return
             }
             else {
+                if(equalPressed == "yes"){
+                    clear()
+                }
                 a += button.textContent
                 display.textContent += button.textContent
             }
@@ -83,10 +92,18 @@ buttons.forEach(button => {
     
 });
 
+function clear(){
+    display.textContent = ""
+    a = ""
+    b = ""
+    operatorStatus = 0
+    operator = null
+}
+
 function calculateBeforeOperator(){
     let aNum = Number(a)
     let bNum = Number(b)
-    console.log(operator)
+    //console.log(operate(aNum, bNum, operator))
     display.textContent = operate(aNum, bNum, operator)
     let result = operate(aNum, bNum, operator)
     a = result.toString()
