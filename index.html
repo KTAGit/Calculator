@@ -3,40 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <title>Calculator</title>
 </head>
 <body style="background-color: white;">
-    <div>
-        <div class = "display" style="height: 20px; width: 100px; background-color: bisque; margin: 20px;"></div>
-    </div>
-    <div>
-        <button class = "operator">/</button>
-        <button class="operator">+/-</button>
-        <button class="operator">%</button>
-        <button>AC</button>
-    </div>
-    <div>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button class = "operator">x</button>
-    </div>
-    <div>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button class = "operator">-</button>
-    </div>
-    <div>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button class = "operator">+</button>
-    </div>
-    <div>
-        <button>0</button>
-        <button>.</button>
-        <button class = "operator">=</button>
+    <div class="main">
+        <div class="section one">
+            <div class = "display"></div>
+        </div>
+        <div class="section two">
+            <button class="ac">AC</button>
+            <button class="operator">+/-</button>
+            <button class="operator">%</button>
+            <button class = "operator">/</button>
+        </div>
+        <div class="section three">
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class = "operator">x</button>
+        </div>
+        <div class="section four">
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class = "operator">-</button>
+        </div>
+        <div class="section five">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class = "operator">+</button>
+        </div>
+        <div class="section six">
+            <button class="zero">0</button>
+            <button>.</button>
+            <button class = "operator equal">=</button>
+        </div>
     </div>
     
     <script src="main.js"></script>

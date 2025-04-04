@@ -1,0 +1,87 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: rgb(160,255,140);
+    background: linear-gradient(180deg, rgba(160,255,140,1) 0%, rgba(107,194,102,1) 50%, rgba(54,54,54,1) 100%);    
+}
+
+.main{
+    box-shadow: rgb(79, 79, 79) 0px 0px 20px 5px;
+    padding-top: 50px;
+    margin: auto;
+    width: 500px;
+    height: 600px;
+    background-color: hsl(212.31deg 8.07% 31.57%);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background: rgb(46,46,48);
+    background: linear-gradient(0deg, rgba(46,46,48,1) 0%, rgba(52,54,57,1) 50%, rgba(73,79,82,1) 100%);
+}
+
+.section{
+    background-color: transparent;
+    width: auto;
+    height: 86px;
+}
+.section.one{
+    height: 120px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.display{
+    color: hsl(216deg 6.1% 32.16%);
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    text-align: end;
+    font-size: 80px;
+    box-shadow: black 0px 0px 25px 1px;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    width: 450px;
+    height: 115px;
+    background-color: white;
+    padding-right: 50px;
+    box-sizing: border-box;
+}
+button{
+    color: hsl(210, 3%, 47%);
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    width: 122px;
+    height: 86px;
+    font-size: 25px;
+    background-color: transparent;
+}
+button.zero{
+    width: 248px;
+    border-bottom-left-radius: 30px;
+}
+.operator.equal{
+    border-bottom-right-radius: 30px;
+}
+button.operator{
+    color: hsl(123, 74%, 60%);
+}
+button.ac{
+    color: hsl(123, 74%, 60%);
+}
+button:active{
+    background: rgb(33, 33, 34);
+}
+
+.section.six{
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
