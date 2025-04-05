@@ -10,13 +10,30 @@ buttons.forEach(button => {
     button.addEventListener("click", function() {
         if(button.textContent == "AC"){
             clear()
+            return
+        }
+        if(button.className == "negative"){
+            console.log("HERE")
+            if(operatorStatus > 0){
+                button.textContent == "+/-" ?  b = "-" + b : b += button.textContent
+                button.textContent == "+/-" ?  display.textContent = "-" + display.textContent : display.textContent += button.textContent
+            }
+            else{
+                button.textContent == "+/-" ?  a = "-" + a : a += button.textContent
+                button.textContent == "+/-" ?  display.textContent = "-" + display.textContent : display.textContent += button.textContent
+            }
         }
         else if (button.className == "operator"){
             operatorStatus += 1
             if(button.textContent != "="){
                 display.textContent += button.textContent
             }
-             
+            if(button.textContent == "%"){
+                if (operator != null){
+                    calculateBeforeOperator()
+                }
+                operator = percentage
+            }
             if(button.textContent == "+"){
                 if (operator != null){
                     calculateBeforeOperator()
@@ -60,7 +77,14 @@ buttons.forEach(button => {
             }
         }
         else if (operatorStatus == 1){
-            display.textContent += button.textContent 
+            if (b != ""){
+
+            }
+            else {
+                display.textContent = ""
+            }
+            
+            display.textContent += button.textContent
             b += button.textContent
         }
         else if (operatorStatus > 1){
@@ -98,6 +122,7 @@ function clear(){
     b = ""
     operatorStatus = 0
     operator = null
+    equalPressed = "no"
 }
 
 function calculateBeforeOperator(){
@@ -130,6 +155,10 @@ function divide(numOne, numTwo){
         return "😏"
     }
     return Math.floor((numOne / numTwo) * 100) / 100
+}
+
+function percentage(numOne, numTwo){
+    return  numTwo * (numOne / 100)
 }
 
 function operate(a, b, operator){    

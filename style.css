@@ -71,6 +71,9 @@ button.zero{
 button.operator{
     color: hsl(123, 74%, 60%);
 }
+button.negative{
+    color: hsl(123, 74%, 60%);
+}
 button.ac{
     color: hsl(123, 74%, 60%);
 }
