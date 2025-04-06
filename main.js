@@ -7,11 +7,27 @@ let operator = null
 let operatorStatus = 0
 let equalPressed = "no"
 let negativeBtn = "off"
+let decimalCounter = 0
 buttons.forEach(button => {
     button.addEventListener("click", function() {
         if(button.textContent == "AC"){
             clear()
             return
+        }
+        if (button.textContent == "."){
+            if(display.textContent == ""){
+                display.textContent = "0."
+                if(operatorStatus > 0){
+                    b = "0."
+                    
+                }
+                else{
+                    a = "0."
+                }
+            }
+            if(display.textContent.includes(".")){
+                return
+            }
         }
         if(button.className == "negative"){
             if(negativeBtn == "off"){
@@ -43,7 +59,6 @@ buttons.forEach(button => {
                 
                 return
             }
-            
         }
         else if (button.className == "operator"){
             operatorStatus += 1
@@ -99,7 +114,6 @@ buttons.forEach(button => {
                     operatorStatus = 0
                     operator = null
                 }
-                
             }
         }
         else if (operatorStatus == 1){
@@ -161,19 +175,17 @@ function calculateBeforeOperator(){
     b = ""
 }
 
-
-
 function add(numOne, numTwo){
     
-    return numOne + numTwo
+    return Math.floor((numOne + numTwo) * 100) / 100
 }
 
 function subtract(numOne, numTwo){
-    return numOne - numTwo
+    return Math.floor((numOne - numTwo) * 100) / 100
 }
 
 function multiply(numOne, numTwo){
-    return numOne * numTwo
+    return Math.floor((numOne * numTwo) * 100) / 100
 }
 
 function divide(numOne, numTwo){
@@ -184,7 +196,7 @@ function divide(numOne, numTwo){
 }
 
 function percentage(numOne, numTwo){
-    return  numTwo * (numOne / 100)
+    return  Math.floor((numTwo * (numOne / 100)) * 100) / 100 
 }
 
 function operate(a, b, operator){    
