@@ -14,8 +14,6 @@ buttons.forEach(button => {
             return
         }
         if(button.className == "negative"){
-            console.log("HERE")
-            
             if(negativeBtn == "off"){
                 if(display.textContent.includes("-") || display.textContent.includes("🤔") || display.textContent == ""){
                     return 
@@ -32,13 +30,14 @@ buttons.forEach(button => {
                 }
             }
             else if(display.textContent.includes("-")){
-                console.log("YES IN HERE")
+                negativeBtn = "off"
                 display.textContent = display.textContent.replace("-", "")
                 if(operatorStatus > 0){
-                    a = a.replace("-", "")
+                    b = b.replace("-", "")
+                    
                 }
                 else{
-                    b = b.replace("-", "")
+                    a = a.replace("-", "")
                 }
             }else {
                 
@@ -156,7 +155,6 @@ function clear(){
 function calculateBeforeOperator(){
     let aNum = Number(a)
     let bNum = Number(b)
-    //console.log(operate(aNum, bNum, operator))
     display.textContent = operate(aNum, bNum, operator)
     let result = operate(aNum, bNum, operator)
     a = result.toString()
@@ -191,6 +189,5 @@ function percentage(numOne, numTwo){
 
 function operate(a, b, operator){    
     
-    //console.log(operator)
     return operator(a, b)
 }
