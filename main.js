@@ -10,16 +10,22 @@ let negativeBtn = "off"
 let decimalCounter = 0
 buttons.forEach(button => {
     button.addEventListener("click", function() {
+        let charactorLength = display.textContent.length
         if(button.textContent == "AC"){
             clear()
             return
         }
+        if(charactorLength == 9){
+            if(button.className != "operator"){
+                return
+            }
+        }
+        
         if (button.textContent == "."){
             if(display.textContent == ""){
                 display.textContent = "0."
                 if(operatorStatus > 0){
                     b = "0."
-                    
                 }
                 else{
                     a = "0."
@@ -63,6 +69,9 @@ buttons.forEach(button => {
         else if (button.className == "operator"){
             operatorStatus += 1
             negativeBtn = "off"
+            if(display.textContent == ""){
+                return
+            }
             if(display.textContent.includes("🤔")){
                 return
             }
