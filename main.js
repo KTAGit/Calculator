@@ -6,6 +6,7 @@ let b = ""
 let operator = null
 let operatorStatus = 0
 let equalPressed = "no"
+let negativeBtn = "off"
 buttons.forEach(button => {
     button.addEventListener("click", function() {
         if(button.textContent == "AC"){
@@ -14,17 +15,43 @@ buttons.forEach(button => {
         }
         if(button.className == "negative"){
             console.log("HERE")
-            if(operatorStatus > 0){
-                button.textContent == "+/-" ?  b = "-" + b : b += button.textContent
-                button.textContent == "+/-" ?  display.textContent = "-" + display.textContent : display.textContent += button.textContent
+            
+            if(negativeBtn == "off"){
+                if(display.textContent.includes("-") || display.textContent.includes("🤔") || display.textContent == ""){
+                    return 
+                }
+                if(operatorStatus > 0){
+                    button.textContent == "+/-" ?  b = "-" + b : b += button.textContent
+                    button.textContent == "+/-" ?  display.textContent = "-" + display.textContent : display.textContent += button.textContent
+                    negativeBtn = "on"
+                }
+                else{
+                    button.textContent == "+/-" ?  a = "-" + a : a += button.textContent
+                    button.textContent == "+/-" ?  display.textContent = "-" + display.textContent : display.textContent += button.textContent
+                    negativeBtn = "on"
+                }
             }
-            else{
-                button.textContent == "+/-" ?  a = "-" + a : a += button.textContent
-                button.textContent == "+/-" ?  display.textContent = "-" + display.textContent : display.textContent += button.textContent
+            else if(display.textContent.includes("-")){
+                console.log("YES IN HERE")
+                display.textContent = display.textContent.replace("-", "")
+                if(operatorStatus > 0){
+                    a = a.replace("-", "")
+                }
+                else{
+                    b = b.replace("-", "")
+                }
+            }else {
+                
+                return
             }
+            
         }
         else if (button.className == "operator"){
             operatorStatus += 1
+            negativeBtn = "off"
+            if(display.textContent.includes("🤔")){
+                return
+            }
             if(button.textContent != "="){
                 display.textContent += button.textContent
             }
@@ -123,6 +150,7 @@ function clear(){
     operatorStatus = 0
     operator = null
     equalPressed = "no"
+    negativeBtn = "off"
 }
 
 function calculateBeforeOperator(){
@@ -151,8 +179,8 @@ function multiply(numOne, numTwo){
 }
 
 function divide(numOne, numTwo){
-    if ( Math.floor((numOne / numTwo) * 100) / 100 == "Infinity"){
-        return "😏"
+    if ( Math.floor((numOne / numTwo) * 100) / 100 == "Infinity" || Math.floor((numOne / numTwo) * 100) / 100 == "-Infinity"){
+        return "🤔"
     }
     return Math.floor((numOne / numTwo) * 100) / 100
 }
