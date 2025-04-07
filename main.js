@@ -29,7 +29,6 @@ buttons.forEach(button => {
                 }
             }
         }
-        
         if (button.textContent == "."){
             if(display.textContent == ""){
                 display.textContent = "0."
@@ -203,10 +202,7 @@ function scaleDown(num){
     str = num.toString()
     length = str.length
     if(length > 9){
-        console.log("In here")
-        let scaleFactor = Math.pow(10, length - 1)
-        num = num / scaleFactor
-        return num.toFixed(7)
+        return num.toExponential(4)
     }
     return num
 }
