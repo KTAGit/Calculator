@@ -8,6 +8,7 @@ let operatorStatus = 0
 let equalPressed = "no"
 let negativeBtn = "off"
 let decimalCounter = 0
+let lastChar = null
 buttons.forEach(button => {
     button.addEventListener("click", function() {
         let charactorLength = display.textContent.length
@@ -67,6 +68,10 @@ buttons.forEach(button => {
             }
         }
         else if (button.className == "operator"){
+            opPressed = lastChar
+            if(opPressed == "+" || opPressed == "-" || opPressed == "x" || opPressed == "/" || opPressed == "%"){
+                return
+            }
             operatorStatus += 1
             negativeBtn = "off"
             if(display.textContent == ""){
@@ -160,6 +165,7 @@ buttons.forEach(button => {
                 display.textContent += button.textContent
             }
         }
+        lastChar = display.textContent.slice(-1)
         console.log(`a = ${a} b = ${b} operator = ${operator}`)
     });
     
