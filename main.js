@@ -18,7 +18,13 @@ buttons.forEach(button => {
         }
         if(charactorLength == 9){
             if(button.className != "operator"){
-                return
+                opPressed = lastChar
+                if(opPressed == "+" || opPressed == "-" || opPressed == "x" || opPressed == "/" || opPressed == "%"){
+                    
+                }
+                else{
+                    return
+                }
             }
         }
         
