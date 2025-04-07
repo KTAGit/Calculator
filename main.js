@@ -16,7 +16,7 @@ buttons.forEach(button => {
             clear()
             return
         }
-        if((display.textContent === "" || ["+", "-", "x", "/", "%"].includes(lastChar)) && button.textContent === "0"){
+        if((display.textContent === "") && button.textContent === "0"){
             return;
         }
         if(characterLength == 9){
@@ -173,7 +173,6 @@ buttons.forEach(button => {
             }
         }
         lastChar = display.textContent.slice(-1)
-        console.log(`a = ${a} b = ${b} operator = ${operator}`)
     });
     
 });
