@@ -11,16 +11,18 @@ let decimalCounter = 0
 let lastChar = null
 buttons.forEach(button => {
     button.addEventListener("click", function() {
-        let charactorLength = display.textContent.length
+        let characterLength = display.textContent.length
         if(button.textContent == "AC"){
             clear()
             return
         }
-        if(charactorLength == 9){
+        if((display.textContent === "" || ["+", "-", "x", "/", "%"].includes(lastChar)) && button.textContent === "0"){
+            return;
+        }
+        if(characterLength == 9){
             if(button.className != "operator"){
                 opPressed = lastChar
                 if(opPressed == "+" || opPressed == "-" || opPressed == "x" || opPressed == "/" || opPressed == "%"){
-                    
                 }
                 else{
                     return
