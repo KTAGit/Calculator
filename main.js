@@ -184,10 +184,23 @@ function clear(){
 function calculateBeforeOperator(){
     let aNum = Number(a)
     let bNum = Number(b)
-    display.textContent = operate(aNum, bNum, operator)
+    
+    display.textContent = scaleDown(operate(aNum, bNum, operator))
     let result = operate(aNum, bNum, operator)
     a = result.toString()
     b = ""
+}
+
+function scaleDown(num){
+    str = num.toString()
+    length = str.length
+    if(length > 9){
+        console.log("In here")
+        let scaleFactor = Math.pow(10, length - 1)
+        num = num / scaleFactor
+        return num.toFixed(7)
+    }
+    return num
 }
 
 function add(numOne, numTwo){
