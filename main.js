@@ -220,10 +220,13 @@ function multiply(numOne, numTwo){
 }
 
 function divide(numOne, numTwo){
-    if ( Math.floor((numOne / numTwo) * 100) / 100 == "Infinity" || Math.floor((numOne / numTwo) * 100) / 100 == "-Infinity"){
+    let result = Math.floor((numOne / numTwo) * 100) / 100
+    if ( !isFinite(result) ){
         return "🤔"
     }
-    return Math.floor((numOne / numTwo) * 100) / 100
+    else{
+        return Math.floor((numOne / numTwo) * 100) / 100
+    }
 }
 
 function percentage(numOne, numTwo){
