@@ -94,6 +94,8 @@ button:active{
     .display{
         width: 90%;
         font-size: 75px;
+        padding-top: 5px;
+        padding-left: 25px;
     }
     .section{
         display: flex;
@@ -107,4 +109,28 @@ button:active{
         border-bottom-left-radius: 30px;
     }
 
+}
+@media screen and (max-width: 439px){
+    .display{
+        padding-top: 5px;
+        padding-right: 20px;
+        padding-left: 10px;
+        
+    }
+}
+@media screen and (max-width: 390px){
+    .display{
+        padding-top: 5px;
+        padding-right: 15px;
+        padding-left: 10px;
+        font-size: 4.3rem;
+    }
+}
+@media screen and (max-width: 320px){
+    .display{
+        padding-top: 15px;
+        padding-right: 15px;
+        padding-left: 10px;
+        font-size: 3.7rem;
+    }
 }
