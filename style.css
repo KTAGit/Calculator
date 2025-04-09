@@ -2,11 +2,11 @@ body{
     margin: 0px;
     padding: 0px;
     height: 100vh;
+    height: 100dvh;
     display: flex;
     align-items: center;
     background: rgb(160,255,140);
-    background: linear-gradient(180deg, rgba(160,255,140,1) 0%, rgba(107,194,102,1) 50%, rgba(54,54,54,1) 100%); 
-    min-width: 530px;   
+    background: linear-gradient(180deg, rgba(160,255,140,1) 0%, rgba(107,194,102,1) 50%, rgba(54,54,54,1) 100%);    
 }
 
 .main{
@@ -26,7 +26,7 @@ body{
 
 .section{
     background-color: transparent;
-    width: auto;
+    width: 100%;
     height: 86px;
 }
 .section.one{
@@ -85,4 +85,26 @@ button:active{
 .section.six{
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+}
+@media screen and (max-width: 530px){
+    
+    .main{
+        width: 95%;
+    }
+    .display{
+        width: 90%;
+        font-size: 75px;
+    }
+    .section{
+        display: flex;
+        height: auto;
+    }
+    button{
+        width: 25%;
+        }
+    button.zero{
+        width: 50%;
+        border-bottom-left-radius: 30px;
+    }
+
 }
