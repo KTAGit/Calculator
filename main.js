@@ -79,14 +79,12 @@ buttons.forEach(button => {
             if(opPressed == "+" || opPressed == "-" || opPressed == "x" || opPressed == "/" || opPressed == "%"){
                 return
             }
+            if(display.textContent.includes("🤔") || display.textContent == ""){
+                a = ""
+                return
+            }
             operatorStatus += 1
             negativeBtn = "off"
-            if(display.textContent == ""){
-                return
-            }
-            if(display.textContent.includes("🤔")){
-                return
-            }
             if(button.textContent != "="){
                 display.textContent += button.textContent
             }
